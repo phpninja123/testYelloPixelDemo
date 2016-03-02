@@ -57,7 +57,7 @@
     {
         //echo "Sorry, there was an error uploading your file.";
         $_SESSION['error_message'] = 'Sorry, we cannot create this record right now, pls try later.';
-        echo "<script>window.location = 'table.php';</script>"; 
+        echo "<script>window.location = 'slider.php';</script>"; 
     }
         
 
