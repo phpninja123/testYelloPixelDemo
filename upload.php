@@ -116,6 +116,7 @@ function uploadFile()
         if ($uploadOk == 0) 
         {
             $error .= "<br>Sorry, your file was not uploaded.";
+            die();
             $_SESSION['error_message'] = $error;
             return false;
             //echo "<button>back</button>";
