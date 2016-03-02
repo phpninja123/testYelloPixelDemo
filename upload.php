@@ -1,5 +1,6 @@
 <?php
-// Check if image file is a actual image or fake image
+    @session_start();
+    // Check if image file is a actual image or fake image
      $_REQUEST['target'] = $_REQUEST['table'];
      $uniqueFileName = uploadFile();
      if( $uniqueFileName || !empty($_POST['id']))
