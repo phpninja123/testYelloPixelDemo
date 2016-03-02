@@ -92,9 +92,10 @@ function uploadFile()
         $imageFileType = pathinfo($target_dir.$originalFileName,PATHINFO_EXTENSION);
         // print_r($imageFileType); die();
         // Allow certain file formats
+        $error = '';
         if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) 
         {
-            //echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
+            $error .= "<br>Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
             $uploadOk = 0;
         }
         
@@ -102,19 +103,20 @@ function uploadFile()
         
         if($check !== false) 
         {
-            //echo "<p>File is an image - " . $check["mime"] . ".</p>";
+            $error .= "<br><p>File is an image - " . $check["mime"] . ".</p>";
             $uploadOk = 1;
         } 
         else 
         {
-            //echo "<p>File is not an image.</p>";
+            $error .= "<br><p>File is not an image.</p>";
             $uploadOk = 0;
         }
 
         // Check if $uploadOk is set to 0 by an error
         if ($uploadOk == 0) 
         {
-            //echo "Sorry, your file was not uploaded.";    
+            $error .= "<br>Sorry, your file was not uploaded.";
+            $_SESSION['error_message'] = $error;
             return false;
             //echo "<button>back</button>";
         } 
