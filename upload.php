@@ -64,7 +64,6 @@
 
 function uploadFile()
 {
-    // echo '---'.($_FILES["fileToUpload"]["name"]).'----'; die();
     if(!empty($_FILES["fileToUpload"]["name"]))
     {
         $target_dir = '';

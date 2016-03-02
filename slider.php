@@ -14,14 +14,12 @@ require_once('sidebar.php');
                 <div class="mws-panel grid_8">
                      
                     <div class="mws-panel-header">
-                        <span><i class="icon-pictures"></i> Slider
-                           <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
-                         class="btn btn-success" style="float: right;">
-                         <i class="icon-plus-sign"></i>Add New Slider Image
+                        <span><i class="icon-pictures"></i> Slider</span>
+                        <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec' class="btn btn-success" style="float: right;margin-top: -28px;">
+                            <i class="icon-plus-sign"></i> Add New
                         </button>
-                        </span>
                     </div>
-                    <div class="mws-panel-body no-padding">
+                    <div class="mws-panel-body no-padding table-responsive">
                         <table class="mws-datatable mws-table" id="dataTableData1">
                             <thead>
                                 <tr>
@@ -78,7 +76,7 @@ require_once('sidebar.php');
                                                 <label for="picture" class="error" generated="true" style="display:none"></label>
                                             </div>
                                             <div class="mws-form-item">
-                                                <img id="fileImg" src="" height="100" width= "100">
+                                                <img id="fileImg" src="" height="100" width="100" alt="">
                                             </div>
                                         </div>
 
@@ -93,6 +91,8 @@ require_once('sidebar.php');
 
             <!-- Inner Container End -->
 <?php
-require_once('portfolio_slider.php');
+// require_once('portfolio_slider.php');
+require_once('footer.php');
 ?>
 <script src="js/portfolio_slider.js"></script>
+

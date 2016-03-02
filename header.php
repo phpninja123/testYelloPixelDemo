@@ -36,6 +36,10 @@
                <!-- Theme Stylesheet -->
                <link rel="stylesheet" type="text/css" href="css/mws-theme.css" media="screen">
                <link rel="stylesheet" type="text/css" href="css/themer.css" media="screen">
+               <link rel="stylesheet" type="text/css" href="css/new_loader.css" media="screen">
+               <link rel="stylesheet" type="text/css" href="css/toastmessage.css" media="screen">
+               
+               
                <title><?php echo $title; ?></title>
             </head>
             <body>
@@ -54,7 +58,7 @@
                      <div id="mws-user-info" class="mws-inset">
                         <!-- User Photo -->
                         <div id="mws-user-photo">
-                           <img src="example/profile.jpg" alt="User Photo">
+                           <img src="images/user.png" alt="User Photo">
                         </div>
                         <!-- Username and Functions -->
                         <div id="mws-user-functions">
@@ -62,7 +66,7 @@
                               Hello, Askara
                            </div>
                            <ul>
-                              <li><a href="#">Change Password</a></li>
+                              <!-- <li><a href="#">Change Password</a></li> -->
                               <li><a href="index.html">Logout</a></li>
                            </ul>
                         </div>
