@@ -52,7 +52,6 @@
         }
         
         require_once('php/DAO.php');
-
     } 
     else 
     {

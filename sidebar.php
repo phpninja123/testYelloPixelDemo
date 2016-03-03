@@ -7,19 +7,19 @@
    <!-- Main Navigation -->
    <div id="mws-navigation">
       <ul>
-         <li <?php
-            if ($page == 'portfolio') {
-            ?> class="active"<?php
-            }
-            ?> >
-            <a href="portfolio.php"><i class="icon-picassa"></i>Portfolio</a>
-         </li>
          <li  <?php
             if ($page == 'category') {
             ?> class="active"<?php
             }
             ?> >
             <a href="category.php"><i class="icon-camera" ></i>Category</a>
+         </li>
+         <li <?php
+            if ($page == 'portfolio') {
+            ?> class="active"<?php
+            }
+            ?> >
+            <a href="portfolio.php"><i class="icon-picassa"></i>Portfolio</a>
          </li>
          <li  <?php
             if ($page == 'slider') {

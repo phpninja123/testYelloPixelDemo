@@ -1,15 +1,15 @@
 $(document).ready(function() {
     pageLoad();
-
 });
 
 function pageLoad() {
     //get identifier for table
     var targetresource = $('tbody').attr('targetResource');
-    //alert('loading records'+targetresource);
-    loadRecords(targetresource);
-    //enableModal(targetresource);
 
+    //refresh data from database
+    loadRecords(targetresource);
+
+    //modal working
     $(document).on("click", "#mws-form-dialog-mdl-btn", function(event) {
         $(".ui-icon").remove();
         $(".ui-dialog-titlebar-close").remove();
@@ -80,8 +80,8 @@ function pageLoad() {
                     click: function() {
                         $(this).dialog("close");
                         $("#mws-validate")[0].reset();
-                        validator.resetForm();
                         $("#fileImg").attr("src", "");
+                        validator.resetForm();
                     }
                 }]
             }).dialog("open");

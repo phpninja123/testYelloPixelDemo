@@ -3,6 +3,15 @@ $(document).ready(function() {
     pageLoad();
 
 });
+function showAjaxLoader() {
+    $("#loading").show();
+    $("#fade").show();
+}
+
+function hideAjaxLoader() {
+    $("#loading").hide();
+    $("#fade").hide();
+}
 function pageLoad(){
     //get identifier for table
     //var targetresource = $('tbody').attr('targetResource');
@@ -32,6 +41,7 @@ function pageLoad(){
                     name: "submit",
                     //id: "btnSubmit",
                     click: function() {
+                        showAjaxLoader();
                         //$("#getImage").submit();
                         //$("#mws-validate").submit();
                          //$(this).find('form#mws-validate');
@@ -61,6 +71,7 @@ function pageLoad(){
                     text: "Update",
                     id: "btnUpdate",
                     click: function() {
+                        showAjaxLoader();
                         var validator = $("form#mws-validate").validate();
                         var isValid = $(this).find('form#mws-validate').valid();
                         if (isValid)
@@ -99,6 +110,7 @@ function pageLoad(){
 
 
 function loadRecords(targetresource) {
+    showAjaxLoader();
     $.ajax({
         url: "php/categoryDAO.php",
         method: "post",
@@ -108,8 +120,10 @@ function loadRecords(targetresource) {
         },
         datatype: JSON,
         success: function(data) {
+            hideAjaxLoader();
             //console.log(data);
-            if (data) {
+            if(data) {
+                //alert(data);
                 var displayData = JSON.parse(data);
                 //console.log(displayData);
                 var displayHtml = "";
@@ -130,6 +144,7 @@ function loadRecords(targetresource) {
                         $("#footerDataTable").html(displayHtml);
                     break;
                 }
+
                 //$('tbody').attr('targetresource').append(displayHtml);
                 if ($.fn.dataTable) {
                     $(".mws-datatable").dataTable();
@@ -145,6 +160,7 @@ function loadRecords(targetresource) {
 }
 
 function populateModal(temp, targetresource){
+    showAjaxLoader();
                 $.ajax({
                 url: "php/categoryDAO.php",
                 method: "get",
@@ -154,6 +170,7 @@ function populateModal(temp, targetresource){
                     target: targetresource
                 },
                 success: function(data) {
+                    hideAjaxLoader();
                     //Salert(data);
                     if (data) {
                         //alert(data);
@@ -199,11 +216,13 @@ function addNewRecord(targetresource) {
         },
         datatype: JSON,
         success: function(data) {
+            hideAjaxLoader();
 
             console.log(data);
             if(data.indexOf("1")> -1){
 
-                alert('New record created successfully');
+                //alert('New record created successfully');
+                $().toastmessage('showSuccessToast', 'Data created successfully');
                 loadRecords(targetresource);    
                 $("#mws-form-dialog").dialog("close");
                 $("#mws-validate")[0].reset();
@@ -211,7 +230,11 @@ function addNewRecord(targetresource) {
                 validator.resetForm();
             }
             else if(data.indexOf('duplicate')>-1){
-                alert('Category value already present, please enter different value');
+                //alert('Category value already present, please enter different value');
+                 $().toastmessage('showSuccessToast', 'Category value already present, please enter different value');
+            }
+            else{
+                $().toastmessage('showErrorToast', 'Error in data creation'); 
             }
         }
     });
@@ -242,9 +265,11 @@ function updateRecords(getCmp, targetresource) {
                 target: targetresource
             },
             success: function(data) {
+                hideAjaxLoader();
                 //alert(data);
                 if (data.indexOf("true") > -1) {
-                    alert("data updated successfully");
+                    //alert("data updated successfully");
+                    $().toastmessage('showSuccessToast', 'Data updated successfully');
                     loadRecords(targetresource);
                     $("#mws-form-dialog").dialog("close");
                     $("#mws-validate")[0].reset();
@@ -252,7 +277,8 @@ function updateRecords(getCmp, targetresource) {
                     validator.resetForm();
                 } 
                 else if(data.indexOf('duplicate')>-1){
-                alert('Oppsss...Category value already present.');
+                    //alert('Oppsss...Category value already present.');
+                    $().toastmessage('showSuccessToast', 'Oppsss...Category value already present.');
                 }
                 else {
                     alert("No data found for update");
@@ -277,10 +303,12 @@ function deleteRecords(getCmp, targetresource) {
             console.log(data);
             if (data.indexOf("true") > -1) {
                 //$("#catId").val(getCmp);
-                alert("Data delete successfully");
+                //alert("Data delete successfully");
+                 $().toastmessage('showSuccessToast', 'Data deleted successfully');
                 loadRecords(targetresource);
             } else {
-                alert("Error in data deletion");
+                //alert("Error in data deletion");
+                $().toastmessage('showErrorToast', 'Error in data deletion'); 
                 loadRecords(targetresource);
             }
         }

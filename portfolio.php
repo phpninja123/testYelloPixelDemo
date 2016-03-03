@@ -13,7 +13,7 @@
          <div class="mws-panel-header">
             <span><i class="icon-picassa"></i>Portfolio
             <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
-               class="btn btn-success" style="float: right;">
+               class="btn btn-success" style="float: right;margin-top: -28px;">
             <i class="icon-plus-sign"></i>Add New Project
             </button>
             </span>
@@ -69,7 +69,7 @@
                            <label for="picture" class="error" generated="true" style="display:none"></label>
                         </div>
                         <div class="mws-form-item">
-                           <img id="fileImg" src="" height="100" width= "100">
+                           <img id="fileImg" src="" alt="" height="100" width= "100">
                         </div>
                      </div>
                   </div>
@@ -82,6 +82,6 @@
 </div>
 <!-- Inner Container End -->
 <?php
-   require_once('portfolio_slider.php');
-   ?>
+   require_once('footer.php');
+?>
 <script type="text/javascript" src="js/portfolio_slider.js"></script>

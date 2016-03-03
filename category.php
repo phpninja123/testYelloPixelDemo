@@ -14,13 +14,13 @@
          <div class="mws-panel-header">
             <span><i class="icon-camera"></i> Category
             <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
-               class="btn btn-success" style="float: right;">
+               class="btn btn-success" style="float: right; margin-top: -28px;">
             <i class="icon-plus-sign"></i>Add New Category
             </button>
             </span>
          </div>
          <div class="mws-panel-body no-padding">
-            <table class="mws-datatable mws-table" id="dataTableData1">
+            <table class="mws-datatable mws-table  table-responsive" id="dataTableData1">
                <thead>
                   <tr>
                      <th>Category</th>
@@ -55,6 +55,6 @@
 </div>
 <!-- Inner Container End -->
 <?php
-   require_once('about_category.php');
+require_once('footer.php');
    ?>
 <script src="js/about_category.js"></script>

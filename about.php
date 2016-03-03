@@ -13,7 +13,7 @@
          <div class="mws-panel-header">
             <span><i class="icon-user"></i> About
             <button type="button" id='mws-form-dialog-mdl-btn' recid='newRec'
-               class="btn btn-success" style="float: right;">
+               class="btn btn-success" style="float: right; margin-top: -28px;">
             <i class="icon-plus-sign"></i>Add About
             </button>
             </span>

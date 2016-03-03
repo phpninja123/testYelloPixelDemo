@@ -1,12 +1,8 @@
 <?php
 require_once("fetchRecords1.php");
-
+ 
 function callDB(){
 	$option=$_REQUEST['operation'];
-	//echo('option choosed'.$option);
-	//$option="update";
-	//$tableName=$_GET['table'];
-	//$tableName='category';
 	$table=$_REQUEST['target'];
 	$selectSQL;
 	$loadSql;
@@ -92,21 +88,15 @@ function callDB(){
 		break;
 		
 	}
-	//echo($table);
 	switch($option){
 		case "read":
-			//callread();
 			echo json_encode(readRecords($loadSql));
 			break;
 		case "select":
 			echo json_encode(readRecords($selectSQL));
 			break;
 		case "update":
-			//$date = now();
-			//echo($date);
-			//echo('in update'); die();
 			echo updateRecords($updateSql);
-			//echo "<script>window.location = 'fileUpload.php';</script>";
 			break;
 		case "delete":
 			$id=$_REQUEST['RecId'];
@@ -120,5 +110,4 @@ function callDB(){
 
 }
 callDB();
-//callImageUpload();
 ?>

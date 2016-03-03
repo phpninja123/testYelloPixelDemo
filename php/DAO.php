@@ -29,9 +29,9 @@ function callDB()
                 $param = $_REQUEST['name'];
                 $id    = $_REQUEST['id'];
                 if (empty($param[3])) {
-                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]'), CAPTION ='$param[2]', UPDATED = now() where ID = $id and DELETED=0";
+                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]' and DELETED = 0), CAPTION ='$param[2]', UPDATED = now() where ID = $id and DELETED=0";
                 } else {
-                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]'), CAPTION ='$param[2]', IMAGE_PATH = '$param[3]', UPDATED = now() where ID = $id and DELETED=0";
+                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]' and DELETED = 0), CAPTION ='$param[2]', IMAGE_PATH = '$param[3]', UPDATED = now() where ID = $id and DELETED=0";
                 }
             }
             break;
@@ -82,6 +82,11 @@ function callDB()
             $id  = $_REQUEST['RecId'];
             $sql = "update $tableName set DELETED = 1 where ID=$id ";
             echo deleteRecords($sql);
+            /*if ($table == 2) {
+                echo "<script>window.location = 'portfolio.php';</script>";
+            } else if ($table == 4) {
+                echo "<script>window.location = 'slider.php';</script>";
+            }*/
             break;
         case "new":
             WriteRecords($newSql);
