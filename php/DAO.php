@@ -15,23 +15,23 @@ function callDB()
         case 2:
             $tableName = 'project_info';
             if ($option == 'read') {
-                $loadSql = "select p.ID, p.IMAGE,p.IMAGE_PATH, c.Name, p.CAPTION,p.CREATED, p.UPDATED from project_info p inner join category c on p.IMAGE_CATEGORY = c.ID where p.DELETED=0 and c.DELETED=0";
+                $loadSql = "select p.ID,p.IMAGE_PATH, c.Name,p.CREATED, p.UPDATED from project_info p inner join category c on p.IMAGE_CATEGORY = c.ID where p.DELETED=0 and c.DELETED=0";
             }
             if ($option == 'select') {
                 $id        = $_REQUEST['RecId'];
-                $selectSQL = "select p.ID,p.IMAGE,p.IMAGE_PATH, c.NAME, p.CAPTION from project_info p inner join category c on p.IMAGE_CATEGORY = c.ID where p.ID = $id";
+                $selectSQL = "select p.ID,p.IMAGE_PATH, c.NAME from project_info p inner join category c on p.IMAGE_CATEGORY = c.ID where p.ID = $id";
             }
             if ($option == 'new') {
                 $param  = $_REQUEST['name'];
-                $newSql = "insert into project_info (IMAGE, IMAGE_CATEGORY, CAPTION, IMAGE_PATH) VALUES ('$param[0]',(select ID from category where NAME= '$param[1]' and DELETED = 0),'$param[2]', '$param[3]')";
+                $newSql = "insert into project_info (IMAGE_CATEGORY, IMAGE_PATH, PORTFOLIO_IMAGE) VALUES ((select ID from category where NAME= '$param[0]' and DELETED = 0),'$param[1]', '$param[2]')";
             }
             if ($option == 'update') {
                 $param = $_REQUEST['name'];
                 $id    = $_REQUEST['id'];
-                if (empty($param[3])) {
-                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]' and DELETED = 0), CAPTION ='$param[2]', UPDATED = now() where ID = $id and DELETED=0";
+                if (empty($param[1])) {
+                    $updateSql = "update project_info set IMAGE_CATEGORY = (select ID from category where Name='$param[0]' and DELETED = 0),PORTFOLIO_IMAGE = '$param[2]', UPDATED = now() where ID = $id and DELETED=0";
                 } else {
-                    $updateSql = "update project_info set IMAGE='$param[0]',IMAGE_CATEGORY = (select ID from category where Name='$param[1]' and DELETED = 0), CAPTION ='$param[2]', IMAGE_PATH = '$param[3]', UPDATED = now() where ID = $id and DELETED=0";
+                    $updateSql = "update project_info set IMAGE_CATEGORY = (select ID from category where Name='$param[0]' and DELETED = 0), IMAGE_PATH = '$param[1]',PORTFOLIO_IMAGE = '$param[2]', UPDATED = now() where ID = $id and DELETED=0";
                 }
             }
             break;
@@ -46,16 +46,16 @@ function callDB()
             }
             if ($option == 'new') {
                 $param  = $_REQUEST['name'];
-                $newSql = "insert into slider (IMAGE, HEAD_CAPTION, SUB_CAPTION, IMAGE_PATH) VALUES ('$param[0]','$param[1]','$param[2]', '$param[3]')";
+                $newSql = "insert into slider ( IMAGE_PATH) VALUES ('$param[0]')";
                 //print_r($newSql); 		
             }
             if ($option == 'update') {
                 $param = $_REQUEST['name'];
                 $id    = $_REQUEST['id'];
-                if (empty($param[3])) {
-                    $updateSql = "update slider set IMAGE = '$param[0]', HEAD_CAPTION = '$param[1]' , SUB_CAPTION = '$param[2]' , UPDATED = now() where  ID = $id and DELETED= 0 ";
+                if (empty($param[0])) {
+                    $updateSql = "update slider set  UPDATED = now() where  ID = $id and DELETED= 0 ";
                 } else {
-                    $updateSql = "update slider set IMAGE = '$param[0]', HEAD_CAPTION = '$param[1]' , SUB_CAPTION = '$param[2]', IMAGE_PATH = '$param[3]' , UPDATED = now() where  ID = $id and DELETED= 0 ";
+                    $updateSql = "update slider set IMAGE_PATH = '$param[0]' , UPDATED = now() where  ID = $id and DELETED= 0 ";
                 }
             }
             break;

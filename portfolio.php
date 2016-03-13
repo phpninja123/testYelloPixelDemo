@@ -24,7 +24,6 @@
                   <tr>
                      <th>Category</th>
                      <th>Image</th>
-                     <th>Image caption</th>
                      <th>Action</th>
                   </tr>
                </thead>
@@ -42,18 +41,8 @@
                   <input type="hidden" name='id' id="id" value=''> 
                   <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
                   <div class="mws-form-inline">
-                     <div class="mws-form-row">
-                        <label class="mws-form-label" id='lblImgName'>Image Name</label>
-                        <div class="mws-form-item">
-                           <input type="text" name="txtImgName" class="required" id="txtImgName" >
-                        </div>
-                     </div>
-                     <div class="mws-form-row">
-                        <label class="mws-form-label" id='lblImgCaption'>Image Caption</label>
-                        <div class="mws-form-item">
-                           <input type="text" name="txtImgCaption" class="required" id="txtImgCaption" >
-                        </div>
-                     </div>
+                     
+                     
                      <div class="mws-form-row">
                         <label class="mws-form-label" id='lblImgCat'>Category</label>
                         <div class="mws-form-item" id='txtImgCat'>
@@ -62,6 +51,15 @@
                            </select>
                         </div>
                      </div>
+
+                     <div class="mws-form-row">
+                        <label class="mws-form-label" id='lblImgCat'>Category</label>
+                        <div class="mws-form-item" id='chkDiv'>
+                           <input type="checkbox" name="chkBox" id="chkBox">
+                           </select>
+                        </div>
+                     </div>
+                     
                      <div class="mws-form-row">
                         <label class="mws-form-label">Choose File</label>
                         <div class="mws-form-item">

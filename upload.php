@@ -1,5 +1,8 @@
 <?php
     @session_start();
+    @define('SLIDER_PATH', 'http://52.26.13.216/Admin/uploads/');
+    @define('IMAGE_PATH', 'http://52.26.13.216/Admin/ProjectImage/');
+
     // Check if image file is a actual image or fake image
      $_REQUEST['target'] = $_REQUEST['table'];
      $uniqueFileName = uploadFile();
@@ -13,13 +16,17 @@
         switch($_REQUEST['target'])
         {
             case 2:
-                $name[0] = $_REQUEST["txtImgName"];
                 //$temp = $_REQUEST["#txtImgCat option:selected"];
-                $name[1] = $_REQUEST["ddselectBox"];
-                $name[2] = $_REQUEST["txtImgCaption"];
-                $name[3] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
-                $name[4]= $_REQUEST['id'];
-                $_REQUEST['name'] = $name;
+                $name[0] = $_REQUEST["ddselectBox"];
+                $name[1] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
+                if(isset($_REQUEST['chkBox'])){
+                    $name[2] = 1;
+                }
+                else{
+                    $name[2] = 0;
+                }
+                //$name[2]= $_REQUEST['id'];
+                //$_REQUEST['name'] = $name;
                  if(!empty($_REQUEST['id']))
                 {
                     $_REQUEST['operation'] = 'update';            
@@ -28,16 +35,13 @@
                 {
                     $_REQUEST['operation'] = "new";
                 }
-                
-                //print_r($name);
+                $_REQUEST['name'] = $name;
+                //print_r($name); die();
                 break;
             case 4:
-                $name[0]= $_REQUEST['txtImgName'];
-                $name[1] = $_REQUEST['txtHeadCaption'];
-                $name[2] = $_REQUEST['txtSubCaption'];
-                $name[3] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
-                $name[4]= $_REQUEST['id'];
-                //print_r($name);
+                $name[0] = ( $uniqueFileName != 1 ) ? $uniqueFileName : '';
+                //$name[1]= $_REQUEST['id'];
+                //print_r($name); die();
                 
                 $_REQUEST['name'] = $name;
                 if(!empty($_REQUEST['id']))

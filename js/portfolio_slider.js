@@ -19,8 +19,6 @@ function pageLoad() {
         } else if (targetresource == 4) {
             titleDisplay = ' Slider Image';
         }
-        //('ui-icon ui-icon-closethick');
-        //$(".ui-dialog-titlebar-close").removeClass('ui-dialog-titlebar-close-ui-corner-all');
         validator = $("#form#mws-validate").validate();
         var temp = $(this).attr('recid');
         if (temp == 'newRec') {
@@ -140,14 +138,14 @@ function loadRecords(targetresource) {
                         $.each(displayData, function(k, v) {
                             //console.log(k.Name);
                             console.log(v.IMAGE_PATH);
-                            displayHtml += "<tr><td>" + v.Name + "</td><td><img src=ProjectImage/" + v.IMAGE_PATH + " width='30' height='30'></td><td>" + v.CAPTION + "</td><td><center><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></center></td></tr>";
+                            displayHtml += "<tr><td>" + v.Name + "</td><td><img src=ProjectImage/" + v.IMAGE_PATH + " width='30' height='30'></td><td><center><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></center></td></tr>";
                         });
                         $("#imageDataTable").html(displayHtml);
                         break;
                     case '4':
                         $.each(displayData, function(k, v) {
                             //console.log(k.Name);
-                            displayHtml += "<tr><td><center><img src=uploads/" + v.IMAGE_PATH + " width='30' height='30'></center></td><td>" + v.HEAD_CAPTION + "</td><td>" + v.SUB_CAPTION + "</td><td><center><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></center></td></tr>";
+                            displayHtml += "<tr><td><center><img src=uploads/" + v.IMAGE_PATH + " width='30' height='30'></center></td><td><center><button id='mws-form-dialog-mdl-btn' recid='" + v.ID + "' class='btn btn-success'><i class='icon-pencil'></i></button>&nbsp;<button  class='btn btn-danger' id='btnDelete' recid='" + v.ID + "'><i class='icon-remove-sign'></i></button></center></td></tr>";
                         });
                         $("#sliderDataTable").html(displayHtml);
                         break;
@@ -187,18 +185,13 @@ function populateModal(temp, targetresource) {
                 //console.log(displayData[0].NAME);
                 switch (targetresource) {
                     case '2':
-                        $('#txtImgName').val(displayData[0].IMAGE);
                         $('#id').val(displayData[0].ID);
                         $('#txtImgCat option:selected').text(displayData[0].NAME);
-                        $('#txtImgCaption').val(displayData[0].CAPTION);
                         $("#fileImg").attr("src", 'ProjectImage/' + displayData[0].IMAGE_PATH);
                         $("#fileToUpload").removeClass("required");
                         break;
                     case '4':
-                        $('#txtImgName').val(displayData[0].IMAGE);
                         $('#id').val(displayData[0].ID);
-                        $('#txtHeadCaption').val(displayData[0].HEAD_CAPTION);
-                        $('#txtSubCaption').val(displayData[0].SUB_CAPTION);
                         $("#fileImg").attr("src", 'uploads/' + displayData[0].IMAGE_PATH);
                         $("#fileToUpload").removeClass("required");
                         break;
