@@ -24,8 +24,6 @@ require_once('sidebar.php');
                             <thead>
                                 <tr>
                                     <th>Image</th>
-                                    <th>Head Caption</th>
-                                    <th>Sub caption</th>
                                     <th>Action</th> 
                                 </tr>
                             </thead>
@@ -47,27 +45,6 @@ require_once('sidebar.php');
                                     <input type="hidden" name='id' id="id" value=''> 
                                     <div id="mws-validate-error" class="mws-form-message error" style="display:none;"></div>
                                     <div class="mws-form-inline">
-
-                                         <div class="mws-form-row">
-                                             <label class="mws-form-label" id='lblImgName'>Image Name</label>
-                                            <div class="mws-form-item">
-                                                <input type="text" name="txtImgName" class="required" id="txtImgName" name = "txtImgName" >
-                                            </div>
-                                        </div>
-
-                                        <div class="mws-form-row">
-                                            <label class="mws-form-label" id='lblImgCaption'>Head Caption</label>
-                                            <div class="mws-form-item">
-                                                <input type="text" name="txtHeadCaption" class="required" id="txtHeadCaption" >
-                                            </div>
-                                        </div>
-
-                                         <div class="mws-form-row">
-                                            <label class="mws-form-label" id='lblImgCat'>Sub Caption</label>
-                                            <div class="mws-form-item">
-                                               <input type="text" name="txtSubCaption" class="required" id="txtSubCaption">
-                                            </div>
-                                        </div>
 
                                          <div class="mws-form-row">
                                             <label class="mws-form-label">Choose File</label>

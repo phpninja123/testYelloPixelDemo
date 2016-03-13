@@ -28,13 +28,13 @@
             ?> >
             <a href="slider.php"><i class="icon-pictures" ></i>Slider</a>
          </li>
-         <li  <?php
+         <!--<li  <?php
             if ($page == 'about') {
             ?> class="active"<?php
             }
             ?> >
             <a href="about.php"><i class="icon-user" ></i>About</a>
-         </li>
+         </li>-->
       </ul>
    </div>
 </div>
