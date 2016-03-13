@@ -1,5 +1,6 @@
 <?php
 //getting database instance & connection
+//pointing to other database
 	function getDBConnection(){
 		//if (!defined('constant')) define('constant', 'value');
 		if(!defined("USERNAME")) define("USERNAME", 'root');
